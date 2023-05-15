@@ -1,0 +1,122 @@
+<app-header></app-header>
+
+<div class="maindiv">
+  <div class="emplist">
+    <div class="textallemp">All employees</div>
+    <div class="btn-add" (click)="showModel = true">
+      <span class="textadd">Add</span>
+    </div>
+    <input
+      class="search"
+      placeholder="Search"
+      type="text"
+      name="employeeName"
+      [(ngModel)]="employeeName"
+      (ngModelChange)="handleChange($event)"
+    />
+    <div class="employeeslist">
+      <div class="employeediv" *ngFor="let i of emplist">
+        <span class="textemp">Employee {{ i }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="empdetails">
+    <div class="empinfo">
+      <div class="singledetail">
+        <div class="label">Name:</div>
+        <div class="value">Employee 1</div>
+      </div>
+      <div class="singledetail">
+        <div class="label">Designation:</div>
+        <div class="value">Software engineer</div>
+      </div>
+      <div class="singledetail">
+        <div class="label">Joining date:</div>
+        <div class="value">S12/11/22</div>
+      </div>
+      <div class="singledetail">
+        <div class="label">Tecnologies:</div>
+        <div class="value">Angular, ReactJs, NodeJs</div>
+      </div>
+      <div class="singledetail">
+        <div class="label">Active projects:</div>
+        <div class="value">Project1, Project2</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="showModel" class="model">
+  <div class="addcomponent">
+    <div class="header">
+      <div class="txtnewemp">New Employee</div>
+      <img
+        src="../../../assets/images/close_icon_grey_mdpi.png"
+        alt="icon_close"
+        class="icon_close"
+        (click)="showModel = false"
+      />
+    </div>
+    <div>
+      <form
+        [formGroup]="addNewEmployee"
+        (ngSubmit)="onSubmit()"
+        class="addempfrom"
+      >
+        <label for="name" class="textlabel">Name</label>
+        <input
+          type="text"
+          id="name"
+          formControlName="name"
+          class="inputfield"
+        />
+        <label for="designation" class="textlabel">Designation</label>
+        <!-- <input
+          type="text"
+          id="designation"
+          formControlName="designation"
+          class="inputfield"
+        /> -->
+        <select
+          id="designation"
+          formControlName="designation"
+          class="selectfield"
+        >
+          <option *ngFor="let x of deg" [value]="x">{{ x }}</option>
+        </select>
+
+        <label for="joiningDate" class="textlabel">Joining Date</label>
+        <input
+          type="date"
+          id="joiningDate"
+          formControlName="joiningDate"
+          class="inputfield"
+        />
+        <label for="technologies" class="textlabel">Technologies</label>
+        <input
+          type="text"
+          id="technologies"
+          formControlName="technologies"
+          class="inputfieldarea"
+          multiple="true"
+        />
+        <span
+          *ngIf="!addNewEmployee.valid && addNewEmployee.touched"
+          class="error-text"
+          >Please enter valid data!</span
+        >
+        <div class="buttons">
+          <div class="btn-cancle" (click)="showModel = false">
+            <span class="textbtn">Cancle</span>
+          </div>
+          <button
+            class="btn-save"
+            type="submit"
+            [disabled]="!addNewEmployee.valid"
+          >
+            <span class="textbtn">Save</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

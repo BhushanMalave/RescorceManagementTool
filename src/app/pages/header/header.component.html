@@ -1,0 +1,21 @@
+<div class="maindiv">
+  <div class="rectangle1">
+    <div class="texrmt">RMT</div>
+    <div class="btnlogout" (click)="onclicklogout()">
+      <span class="textlogout"> Log out </span>
+    </div>
+  </div>
+  <div class="navbar">
+    <a
+      class="navbarin"
+      [routerLinkActive]="active"
+      routerLink="/employees"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      Employees
+    </a>
+    <dia class="navbarin" routerLink="/projects" [routerLinkActive]="active">
+      Projects
+    </dia>
+  </div>
+</div>

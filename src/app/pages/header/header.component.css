@@ -1,0 +1,75 @@
+.maindiv {
+  display: flex;
+  flex-direction: column;
+  max-width: 100vw;
+  max-height: 100vh;
+}
+.rectangle1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: 7vh;
+  background: #5e66ad;
+}
+.texrmt {
+  width: 101px;
+  height: 16px;
+  /* font-family: 'Inter'; */
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 15px;
+  color: #ffffff;
+  margin-left: 2vw;
+}
+.btnlogout {
+  width: 120px;
+  height: 35px;
+  background: #fbf8f8;
+  border-radius: 5px;
+  margin-right: 2vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.textlogout {
+  /* font-family: "Inter"; */
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  color: #000000;
+}
+.rendercomponent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100vw;
+  background-color: red;
+}
+.navbar {
+  width: 100vw;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+}
+.navbarin {
+  width: 50vw;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #9ba3ed;
+  /* font-family: "Inter"; */
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 15px;
+  color: #000000;
+  text-decoration: none;
+}
+.active {
+  background: #dbdef7;
+}

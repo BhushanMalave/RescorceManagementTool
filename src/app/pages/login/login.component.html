@@ -1,0 +1,62 @@
+<div class="rectangle1">
+  <div class="texrmt">RMT</div>
+  <div class="btnlogin" (click)="toggle = true">
+    <span class="textlogin"> Login </span>
+  </div>
+</div>
+<div class="rendercomponent" *ngIf="!toggle">
+  <div class="textrmtbig">RMT</div>
+  <div class="textresmangtools">Resource Management Tools</div>
+</div>
+
+<div class="rendercomponent" *ngIf="toggle">
+  <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
+    <div class="logindiv">
+      <div formGroupName="userData">
+        <div class="formgroup">
+          <label for="email" class="textlabelemail">Email</label>
+          <input
+            type="text"
+            placeholder="Enter Email"
+            id="email"
+            formControlName="email"
+            class="formcontrol"
+          />
+          <div
+            *ngIf="
+              !signinForm.get('userData.email').valid &&
+              signinForm.get('userData.email').touched
+            "
+            class="errortext"
+          >
+            Please enter a valid email!
+          </div>
+        </div>
+      </div>
+      <div formGroupName="userData">
+        <div class="formgroup1">
+          <label for="password" class="textlabelpassword">Password</label>
+          <input
+            type="text"
+            placeholder="Enter Password"
+            id="password"
+            formControlName="password"
+            class="formcontrol"
+          />
+          <span
+            *ngIf="
+              !signinForm.get('userData.password').valid &&
+              signinForm.get('userData.password').touched
+            "
+            class="errortext"
+          >
+            Please enter a valid password!
+          </span>
+        </div>
+      </div>
+    </div>
+    <button class="btn-primary" type="submit" [disabled]="!signinForm.valid">
+      <span class="btntext">Sign In and Register </span>
+    </button>
+  </form>
+</div>

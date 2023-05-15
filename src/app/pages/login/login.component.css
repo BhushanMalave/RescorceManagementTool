@@ -1,0 +1,148 @@
+.rectangle1 {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: 7%;
+  background: #5e66ad;
+}
+.texrmt {
+  /* font-family: 'Inter'; */
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 15px;
+  color: #ffffff;
+  margin-left: 2vw;
+}
+.btnlogin {
+  width: 100px;
+  height: 35px;
+  background: #fbf8f8;
+  border-radius: 5px;
+  margin-right: 2vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.textlogin {
+  /* font-family: "Inter"; */
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  color: #000000;
+}
+
+.rendercomponent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100%;
+  /* background-color: red; */
+}
+
+.textrmtbig {
+  /* font-family: 'Inter'; */
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 15px;
+  color: #5e66ad;
+  margin-top: 5vh;
+}
+
+.textresmangtools {
+  /* font-family: 'Inter'; */
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 15px;
+  color: #5e66ad;
+  margin-top: 4vh;
+}
+
+.logindiv {
+  width: 370px;
+  height: 200px;
+  border: 1px solid #5e66ad;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.formgroup1 {
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+}
+.formgroup {
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+  height: 95px;
+}
+
+.textlabelemail {
+  /* font-family: 'Inter'; */
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 15px;
+  color: #000000;
+  margin-top: 20px;
+}
+
+.textlabelpassword {
+  /* font-family: 'Inter'; */
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 15px;
+  color: #000000;
+  margin-top: 10px;
+}
+
+.formcontrol {
+  margin-top: 10px;
+  width: 270px;
+  height: 32px;
+  border: 1px solid #000000;
+}
+.formcontrol:focus {
+  outline: none;
+  background: #dbdef6;
+}
+
+.btn-primary {
+  width: 180px;
+  height: 34px;
+  background: #9ba3ed;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  margin-left: 170px;
+  border-width: 0px;
+}
+.btntext {
+  /* font-family: 'Inter'; */
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 15px;
+  color: #000000;
+}
+
+.errortext {
+  font-size: 10px;
+  color: red;
+}
