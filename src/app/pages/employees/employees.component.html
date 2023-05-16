@@ -15,8 +15,12 @@
       (ngModelChange)="handleChange($event)"
     />
     <div class="employeeslist">
-      <div class="employeediv" *ngFor="let i of emplist">
-        <span class="textemp">Employee {{ i }}</span>
+      <div
+        class="employeediv"
+        *ngFor="let emp of filterlist"
+        (click)="employeeData = emp"
+      >
+        <span class="textemp"> {{ emp.name }}</span>
       </div>
     </div>
   </div>
@@ -24,23 +28,23 @@
     <div class="empinfo">
       <div class="singledetail">
         <div class="label">Name:</div>
-        <div class="value">Employee 1</div>
+        <div class="value">{{ employeeData?.name }}</div>
       </div>
       <div class="singledetail">
         <div class="label">Designation:</div>
-        <div class="value">Software engineer</div>
+        <div class="value">{{ employeeData?.designation }}</div>
       </div>
       <div class="singledetail">
         <div class="label">Joining date:</div>
-        <div class="value">S12/11/22</div>
+        <div class="value">{{ employeeData?.joiningDate }}</div>
       </div>
       <div class="singledetail">
         <div class="label">Tecnologies:</div>
-        <div class="value">Angular, ReactJs, NodeJs</div>
+        <div class="value">{{ employeeData?.technologies }}</div>
       </div>
       <div class="singledetail">
         <div class="label">Active projects:</div>
-        <div class="value">Project1, Project2</div>
+        <div class="value">{{ employeeData?.name }}</div>
       </div>
     </div>
   </div>
@@ -69,13 +73,15 @@
           formControlName="name"
           class="inputfield"
         />
-        <label for="designation" class="textlabel">Designation</label>
+        <label for="designationId" class="textlabel">Designation</label>
         <select
-          id="designation"
-          formControlName="designation"
+          id="designationId"
+          formControlName="designationId"
           class="selectfield"
         >
-          <option *ngFor="let x of deg" [value]="x.id">{{ x.name }}</option>
+          <option *ngFor="let x of designations" [value]="x.id">
+            {{ x.name }}
+          </option>
         </select>
 
         <label for="joiningDate" class="textlabel">Joining Date</label>

@@ -20,19 +20,19 @@ export class TimerService {
 
   initInterval() {
     this.ngZone.runOutsideAngular(() => {
-      if (localStorage.getItem('Authorization') === 'true') {
-        setInterval(() => {
+      setInterval(() => {
+        if (localStorage.getItem('Authorization') === 'true') {
           this.check();
-        }, 1000);
-      }
+        }
+      }, 1000);
     });
   }
 
   check() {
     const now = Date.now();
-    const timeLeft = parseInt(this.getLastAction()) + 1 * 60 * 1000;
+    const timeLeft = parseInt(this.getLastAction()) + 5 * 60 * 1000;
     const diff = timeLeft - now;
-    console.log(diff);
+    // console.log(diff);
     const isTimeout = diff < 0;
     this.ngZone.run(() => {
       if (isTimeout && localStorage.getItem('Authorization') === 'true') {

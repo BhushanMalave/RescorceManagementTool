@@ -15,9 +15,13 @@
       (ngModelChange)="handleChange($event)"
     />
     <div class="projectslist">
-      <div class="projectdiv" *ngFor="let i of projectlist">
-        <span class="textprj">Project {{ i }}</span>
-        <span class="textstatus">Yet to Start</span>
+      <div
+        class="projectdiv"
+        *ngFor="let proj of filterlist"
+        (click)="projectData = proj"
+      >
+        <span class="textprj"> {{ proj?.name }}</span>
+        <span class="textstatus">{{ proj?.status }}</span>
       </div>
     </div>
   </div>
@@ -25,24 +29,26 @@
     <div class="empinfo">
       <div class="singledetail">
         <div class="label">Name:</div>
-        <div class="value">Project1</div>
+        <div class="value">{{ projectData?.name }}</div>
       </div>
       <div class="singledetail">
         <div class="label">Status:</div>
-        <div class="value">In progress</div>
+        <div class="value">{{ projectData?.status }}</div>
         <div class="btnclose"><span class="textadd">Close</span></div>
       </div>
       <div class="singledetail">
         <div class="label">Joining date:</div>
-        <div class="value">12/11/22</div>
+        <div class="value">{{ projectData?.startDate }}</div>
       </div>
       <div class="singledetail">
         <div class="label">Tecnologies:</div>
-        <div class="value">Angular, ReactJs, NodeJs</div>
+        <div class="value">{{ projectData?.technologies }}</div>
       </div>
       <div class="singledetail">
         <div class="label">Developers:</div>
-        <div class="value">Project1, Project2</div>
+        <div class="value" *ngFor="let emp of projectData?.employees">
+          {{ emp?.name }},
+        </div>
       </div>
     </div>
   </div>
