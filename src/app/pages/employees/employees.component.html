@@ -70,18 +70,12 @@
           class="inputfield"
         />
         <label for="designation" class="textlabel">Designation</label>
-        <!-- <input
-          type="text"
-          id="designation"
-          formControlName="designation"
-          class="inputfield"
-        /> -->
         <select
           id="designation"
           formControlName="designation"
           class="selectfield"
         >
-          <option *ngFor="let x of deg" [value]="x">{{ x }}</option>
+          <option *ngFor="let x of deg" [value]="x.id">{{ x.name }}</option>
         </select>
 
         <label for="joiningDate" class="textlabel">Joining Date</label>

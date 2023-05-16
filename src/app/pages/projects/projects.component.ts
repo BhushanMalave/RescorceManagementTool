@@ -11,7 +11,7 @@ export class ProjectsComponent {
   projectlist: any[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   deg = ['a', 'b', 'c'];
   addNewProject!: FormGroup;
-  showModel: boolean = true;
+  showModel: boolean = false;
   ngOnInit() {
     this.addNewProject = new FormGroup({
       name: new FormControl('', Validators.required),

@@ -12,5 +12,6 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {}
   onclicklogout() {
     this.router.navigate(['']);
+    localStorage.setItem('Authorization', JSON.stringify(false));
   }
 }

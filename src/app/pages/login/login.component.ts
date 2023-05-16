@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   toggle: boolean = false;
   signinForm!: FormGroup;
-  constructor(public router: Router) {}
+  constructor(public loginServices: LoginService) {}
 
   ngOnInit() {
     this.signinForm = new FormGroup({
@@ -18,7 +19,7 @@ export class LoginComponent implements OnInit {
         email: new FormControl('', [Validators.required, Validators.email]),
         password: new FormControl('', [
           Validators.required,
-          Validators.minLength(7),
+          Validators.minLength(1),
           Validators.pattern(
             /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*#?&^_-]).{8,}/
           ),
@@ -28,8 +29,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.signinForm.value);
+    this.loginServices.userValidation(this.signinForm.value.userData);
     this.signinForm.reset();
-    this.router.navigate(['employees']);
   }
 }

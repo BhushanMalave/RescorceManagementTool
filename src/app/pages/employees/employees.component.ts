@@ -10,8 +10,8 @@ export class EmployeesComponent implements OnInit {
   employeeName: string = '';
   addNewEmployee!: FormGroup;
   emplist: any[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-  deg = ['a', 'b', 'c'];
-  showModel: boolean = true;
+  deg = [{ id: 1, name: 'a' }];
+  showModel: boolean = false;
   ngOnInit() {
     this.addNewEmployee = new FormGroup({
       name: new FormControl('', Validators.required),
