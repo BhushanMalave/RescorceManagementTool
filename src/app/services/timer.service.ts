@@ -30,7 +30,7 @@ export class TimerService {
 
   check() {
     const now = Date.now();
-    const timeLeft = parseInt(this.getLastAction()) + 5 * 60 * 1000;
+    const timeLeft = parseInt(this.getLastAction()) + 10 * 60 * 1000;
     const diff = timeLeft - now;
     // console.log(diff);
     const isTimeout = diff < 0;
@@ -41,6 +41,7 @@ export class TimerService {
           console.log(
             'Your Session Expired due to longer Inactivity, Login Again To Continue'
           );
+          localStorage.removeItem('Employee');
         }, 1000);
         localStorage.setItem('Authorization', JSON.stringify(false));
         this.router.navigate(['']);

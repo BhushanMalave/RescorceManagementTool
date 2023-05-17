@@ -1,34 +1,41 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { TimerService } from './timer.service';
+import { userdetails } from '../type.model';
 @Injectable({
   providedIn: 'root',
 })
 export class LoginService {
-  userData: { email: string; password: string }[] = [];
+  userData: userdetails[] = [];
+  status: boolean = false;
 
   constructor(public router: Router, public timer: TimerService) {}
 
-  userValidation(data: { email: string; password: string }) {
+  userValidation(data: userdetails) {
     // console.log(data);
     this.userData = JSON.parse(localStorage.getItem('usersDetails'));
     // console.log(this.userData);
     if (this.userData) {
-      const item: { email: string; password: string }[] = this.userData.map(
-        (value) => value
-      );
-      if (item[0].email == data.email) {
-        console.log('email exists');
-        if (data.password == item[0].password) {
-          console.log('correct password');
-          this.login();
-        } else {
-          console.log('wrong password');
+      this.userData.map((value) => {
+        if (value.email == data.email) {
+          console.log('email exists');
+          if (data.password == value.password) {
+            console.log('correct password');
+            this.login();
+            this.status = true;
+            // alert('User Loged In Successfully');
+          } else {
+            console.log('wrong password');
+            this.status = true;
+            alert('Please Enter Correct Password');
+          }
         }
-      } else {
+      });
+      if (!this.status) {
         console.log('email not exist');
         this.userData.push(data);
         this.login();
+        // alert('User Registered Successfully');
       }
     } else {
       console.log('data not exist');

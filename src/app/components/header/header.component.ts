@@ -13,5 +13,6 @@ export class HeaderComponent implements OnInit {
   onclicklogout() {
     this.router.navigate(['']);
     localStorage.setItem('Authorization', JSON.stringify(false));
+    localStorage.removeItem('Employee');
   }
 }

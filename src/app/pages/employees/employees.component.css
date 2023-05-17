@@ -60,19 +60,22 @@
   padding-left: 10px;
   font-weight: 400;
 }
+.search:focus {
+  outline: none;
+}
 
 .employeeslist {
   width: 61%;
-  height: 300px;
+  height: 280px;
   margin-top: 30px;
   margin-left: 40px;
   overflow-y: auto;
+  border: 1px solid #5e66ad;
 }
 ::-webkit-scrollbar {
   display: none;
 }
 .employeediv {
-  width: 99%;
   height: 55px;
   background: #dbdef7;
   border: 1px solid #5e66ad;
@@ -102,13 +105,50 @@
   flex-direction: row;
   margin-top: 50px;
 }
-.label {
+.labelname {
+  /* font-family: "Inter"; */
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 15px;
+  width: 80px;
+  color: #000000;
+}
+.labeldesignation {
+  /* font-family: "Inter"; */
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 15px;
+  width: 150px;
+  color: #000000;
+}
+.labeldate {
   /* font-family: "Inter"; */
   font-style: normal;
   font-weight: 700;
   font-size: 28px;
   line-height: 15px;
   color: #000000;
+  width: 165px;
+}
+.labeltech {
+  /* font-family: "Inter"; */
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 15px;
+  color: #000000;
+  width: 165px;
+}
+.labelproj {
+  /* font-family: "Inter"; */
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 15px;
+  color: #000000;
+  width: 220px;
 }
 .value {
   /* font-family: 'Inter'; */
@@ -118,6 +158,24 @@
   line-height: 15px;
   color: #000000;
   margin-left: 30px;
+}
+.valueproj {
+  margin-left: 10px;
+  align-items: center;
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: -10px;
+  /* border: 1px red solid; */
+}
+.valueprojin {
+  /* font-family: 'Inter'; */
+  font-style: normal;
+  font-weight: 200;
+  font-size: 28px;
+  color: #000000;
+  margin-left: 10px;
 }
 
 .model {
@@ -132,15 +190,15 @@
   align-items: center;
 }
 .addcomponent {
-  width: 600px;
-  height: 700px;
+  width: 550px;
+  height: 650px;
   background: #ffffff;
 }
 .header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 .txtnewemp {
   font-family: "Inter";
@@ -230,8 +288,8 @@
 .btn-cancle {
   width: 120px;
   height: 40px;
-  margin-top: 30px;
-  margin-left: 20px;
+  margin-top: 10px;
+  margin-left: 0px;
   background: #d2d3dd;
   border-radius: 5px;
   display: flex;
@@ -242,8 +300,8 @@
 .btn-save {
   width: 120px;
   height: 40px;
-  margin-top: 30px;
-  margin-right: 100px;
+  margin-top: 10px;
+  margin-right: 33px;
   background: #9ba3ed;
   border-radius: 5px;
   display: flex;

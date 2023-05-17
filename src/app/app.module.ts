@@ -7,10 +7,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { ProjectsComponent } from './pages/projects/projects.component';
 import { EmployeesComponent } from './pages/employees/employees.component';
 import { LoginComponent } from './pages/login/login.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 @NgModule({
   declarations: [
@@ -23,12 +22,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
-    MatButtonModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgMultiSelectDropDownModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],

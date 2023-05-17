@@ -48,6 +48,16 @@ export class ApiService {
       }
     );
   }
+  updateProjectStatus(body, id) {
+    console.log(body, id);
+    return this.http.put(
+      `https://pmt-service.onrender.com/api/projects/${id}/update_status`,
+      body,
+      {
+        headers: { 'x-api-key': 'secrt-dev-1505' },
+      }
+    );
+  }
 
   getDesignationData() {
     return this.http.get(

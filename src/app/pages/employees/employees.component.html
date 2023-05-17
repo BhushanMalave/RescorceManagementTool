@@ -18,33 +18,41 @@
       <div
         class="employeediv"
         *ngFor="let emp of filterlist"
-        (click)="employeeData = emp"
+        (click)="onClickEmployee(emp)"
+        [ngStyle]="{
+          'background-color':
+            emp?.name === employeeData?.name ? '#dbdef7' : 'transparent'
+        }"
       >
-        <span class="textemp"> {{ emp.name }}</span>
+        <span class="textemp"> {{ emp?.name }}</span>
       </div>
     </div>
   </div>
   <div class="empdetails">
     <div class="empinfo">
       <div class="singledetail">
-        <div class="label">Name:</div>
+        <div class="labelname">Name:</div>
         <div class="value">{{ employeeData?.name }}</div>
       </div>
       <div class="singledetail">
-        <div class="label">Designation:</div>
+        <div class="labeldesignation">Designation:</div>
         <div class="value">{{ employeeData?.designation }}</div>
       </div>
       <div class="singledetail">
-        <div class="label">Joining date:</div>
+        <div class="labeldate">Joining date:</div>
         <div class="value">{{ employeeData?.joiningDate }}</div>
       </div>
       <div class="singledetail">
-        <div class="label">Tecnologies:</div>
+        <div class="labeltech">Tecnologies:</div>
         <div class="value">{{ employeeData?.technologies }}</div>
       </div>
       <div class="singledetail">
-        <div class="label">Active projects:</div>
-        <div class="value">{{ employeeData?.name }}</div>
+        <div class="labelproj">Active projects:</div>
+        <div class="valueproj">
+          <div *ngFor="let proj of employeeProjectList" class="valueprojin">
+            {{ proj }} ,
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -57,7 +65,7 @@
         src="../../../assets/images/close_icon_grey_mdpi.png"
         alt="icon_close"
         class="icon_close"
-        (click)="showModel = false"
+        (click)="onCancle()"
       />
     </div>
     <div>
@@ -105,7 +113,7 @@
           >Please enter valid data!</span
         >
         <div class="buttons">
-          <div class="btn-cancle" (click)="showModel = false">
+          <div class="btn-cancle" (click)="onCancle()">
             <span class="textbtn">Cancle</span>
           </div>
           <button

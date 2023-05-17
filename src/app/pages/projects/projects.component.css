@@ -56,23 +56,27 @@
   margin-left: 40px;
 }
 ::-webkit-input-placeholder {
-  margin-left: 20px;
+  padding-left: 10px;
+  font-weight: 400;
+}
+
+.search:focus {
+  outline: none;
 }
 
 .projectslist {
   width: 61%;
-  height: 300px;
+  height: 280px;
   margin-top: 30px;
   margin-left: 40px;
   overflow-y: auto;
+  border: 1px solid #5e66ad;
 }
 ::-webkit-scrollbar {
   display: none;
 }
 .projectdiv {
-  width: 99%;
   height: 55px;
-  background: #dbdef7;
   border: 1px solid #5e66ad;
   display: flex;
   align-items: center;
@@ -85,6 +89,7 @@
   font-size: 24px;
   color: #000000;
   margin-left: 20px;
+  width: 200px;
 }
 .textstatus {
   /* font-family: "Inter"; */
@@ -117,6 +122,11 @@
   line-height: 15px;
   color: #000000;
 }
+.statusdiv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 .value {
   /* font-family: 'Inter'; */
   font-style: normal;
@@ -125,6 +135,22 @@
   line-height: 15px;
   color: #000000;
   margin-left: 30px;
+}
+
+.valueemp {
+  /* font-family: 'Inter'; */
+  font-style: normal;
+  font-weight: 200;
+  font-size: 28px;
+  line-height: 15px;
+  color: #000000;
+  margin-left: 30px;
+  display: flex;
+  flex-direction: row;
+}
+
+.valueempin {
+  margin-left: 10px;
 }
 .btnclose {
   width: 100px;
@@ -148,15 +174,15 @@
   align-items: center;
 }
 .addcomponent {
-  width: 600px;
-  height: 700px;
+  width: 550px;
+  height: 650px;
   background: #ffffff;
 }
 .header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 .txtnewemp {
   font-family: "Inter";
@@ -223,9 +249,10 @@
 }
 .inputfieldarea {
   margin-top: 20px;
-  width: 350px;
-  height: 80px;
+  width: 330px;
+  height: 42px;
   border: 2px solid #000000;
+  padding-right: 23px;
   /* font-family: 'Inter'; */
   font-style: normal;
   font-weight: 400;
@@ -247,7 +274,7 @@
   width: 120px;
   height: 40px;
   margin-top: 30px;
-  margin-left: 20px;
+  margin-left: 0px;
   background: #d2d3dd;
   border-radius: 5px;
   display: flex;
@@ -259,7 +286,7 @@
   width: 120px;
   height: 40px;
   margin-top: 30px;
-  margin-right: 100px;
+  margin-right: 35px;
   background: #9ba3ed;
   border-radius: 5px;
   display: flex;

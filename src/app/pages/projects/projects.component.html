@@ -19,9 +19,19 @@
         class="projectdiv"
         *ngFor="let proj of filterlist"
         (click)="projectData = proj"
+        [ngStyle]="{
+          'background-color':
+            proj?.name === projectData?.name ? '#dbdef7' : 'transparent'
+        }"
       >
         <span class="textprj"> {{ proj?.name }}</span>
-        <span class="textstatus">{{ proj?.status }}</span>
+        <span class="textstatus" *ngIf="proj?.status === 'New'"
+          >Yet to start</span
+        >
+        <span class="textstatus" *ngIf="proj?.status === 'In Progress'"
+          >In progress</span
+        >
+        <span class="textstatus" *ngIf="proj?.status === 'Closed'">Closed</span>
       </div>
     </div>
   </div>
@@ -33,8 +43,24 @@
       </div>
       <div class="singledetail">
         <div class="label">Status:</div>
-        <div class="value">{{ projectData?.status }}</div>
-        <div class="btnclose"><span class="textadd">Close</span></div>
+        <div class="statusdiv" *ngIf="projectData?.status === 'New'">
+          <div class="value">Yet to start</div>
+          <div class="btnclose" (click)="updateStatus(projectData)">
+            <span class="textadd">Start</span>
+          </div>
+        </div>
+        <div class="statusdiv" *ngIf="projectData?.status === 'In Progress'">
+          <div class="value">In Progress</div>
+          <div class="btnclose">
+            <span class="textadd" (click)="updateStatus(projectData)"
+              >Close</span
+            >
+          </div>
+        </div>
+        <div class="statusdiv" *ngIf="projectData?.status === 'Closed'">
+          <div class="value">Closed</div>
+          <div class="btnclose"><span class="textadd">Delete</span></div>
+        </div>
       </div>
       <div class="singledetail">
         <div class="label">Joining date:</div>
@@ -46,8 +72,14 @@
       </div>
       <div class="singledetail">
         <div class="label">Developers:</div>
-        <div class="value" *ngFor="let emp of projectData?.employees">
-          {{ emp?.name }},
+        <div class="valueemp">
+          <div
+            class="valueempin"
+            *ngFor="let emp of projectData?.employees"
+            (click)="navigateToEmployee(emp)"
+          >
+            {{ emp.name }},
+          </div>
         </div>
       </div>
     </div>
@@ -61,7 +93,7 @@
         src="../../../assets/images/close_icon_grey_mdpi.png"
         alt="icon_close"
         class="icon_close"
-        (click)="showModel = false"
+        (click)="onCancle()"
       />
     </div>
     <div>
@@ -85,21 +117,6 @@
           class="inputfield"
           multiple="true"
         />
-        <!-- <label for="designation" class="textlabel">Designation</label> -->
-        <!-- <input
-          type="text"
-          id="designation"
-          formControlName="designation"
-          class="inputfield"
-        /> -->
-        <!-- <select
-          id="designation"
-          formControlName="designation"
-          class="selectfield"
-        >
-          <option *ngFor="let x of deg" [value]="x">{{ x }}</option>
-        </select> -->
-
         <label for="startDate" class="textlabel">Start Date</label>
         <input
           type="date"
@@ -108,20 +125,23 @@
           class="inputfield"
         />
         <label for="employees" class="textlabel">Employees</label>
-        <input
-          type="text"
-          id="employees"
-          formControlName="employees"
-          class="inputfieldarea"
-          multiple="true"
-        />
+        <div class="inputfieldarea">
+          <ng-multiselect-dropdown
+            formControlName="employees"
+            [settings]="dropdownSettings"
+            [data]="dropdownList"
+            (onSelect)="employeeSelected($event)"
+            (onDeSelect)="employeeUnSelected($event)"
+          >
+          </ng-multiselect-dropdown>
+        </div>
         <span
           *ngIf="!addNewProject.valid && addNewProject.touched"
           class="error-text"
           >Please enter valid data!</span
         >
         <div class="buttons">
-          <div class="btn-cancle" (click)="showModel = false">
+          <div class="btn-cancle" (click)="onCancle()">
             <span class="textbtn">Cancle</span>
           </div>
           <button
