@@ -130,7 +130,7 @@
   font-size: 28px;
   line-height: 15px;
   color: #000000;
-  width: 165px;
+  min-width: 165px;
 }
 .labeltech {
   /* font-family: "Inter"; */
@@ -148,7 +148,7 @@
   font-size: 28px;
   line-height: 15px;
   color: #000000;
-  width: 220px;
+  min-width: 220px;
 }
 .value {
   /* font-family: 'Inter'; */

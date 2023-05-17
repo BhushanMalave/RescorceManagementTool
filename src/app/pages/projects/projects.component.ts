@@ -119,7 +119,21 @@ export class ProjectsComponent {
       .updateProjectStatus(body, data.id)
       .subscribe((response) => {
         console.log(response);
-        this.getData();
+        this.apiServices.getProjectsData().subscribe(
+          (responseData: project[]) => {
+            // console.log(responseData);
+            this.projectlist = responseData;
+            this.filterlist = this.projectlist;
+            this.filterlist.map((item) => {
+              if (item.id === this.projectData.id) {
+                this.projectData = item;
+              }
+            });
+          },
+          (error) => {
+            this.error.next(error.message);
+          }
+        );
       });
   }
 }
