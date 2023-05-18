@@ -79,12 +79,12 @@
 }
 .projectdiv {
   height: 55px;
-  border: 1px solid #5e66ad;
+  border-top: 1px solid #5e66ad;
+  border-bottom: 1px solid #5e66ad;
   display: flex;
   align-items: center;
   gap: 10px;
   width: 100%;
-  max-width: 100%;
 }
 
 .textprj {
@@ -94,7 +94,7 @@
   font-size: 24px;
   color: #000000;
   margin-left: 20px;
-  width: 170px;
+  width: 50%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
