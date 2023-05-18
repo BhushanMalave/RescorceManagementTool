@@ -33,3 +33,9 @@ export interface project {
 export interface status {
   status: string;
 }
+
+export interface url {
+  employee: string;
+  project: string;
+  designation: string;
+}
