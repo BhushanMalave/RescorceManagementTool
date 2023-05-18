@@ -1,4 +1,4 @@
-import { url } from '../type.model';
+import { url } from './type.model';
 
 export const URL: url = {
   employee: 'https://pmt-service.onrender.com/api/employees',

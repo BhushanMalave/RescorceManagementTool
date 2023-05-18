@@ -1,15 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { catchError } from 'rxjs/operators';
-import { Subject, throwError } from 'rxjs';
 import { employee, project, status } from '../type.model';
-import { URL } from './urls.model';
+import { URL } from '../urls.model';
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   constructor(private http: HttpClient) {}
-  error = new Subject<string>();
 
   getEmployeesData() {
     return this.http.get(`${URL.employee}`);

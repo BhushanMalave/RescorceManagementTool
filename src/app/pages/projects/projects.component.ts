@@ -43,7 +43,7 @@ export class ProjectsComponent {
         this.filterlist = this.projectlist;
         this.projectData = this.filterlist[0];
       },
-      (error) => {
+      (error): void => {
         this.error.next(error.message);
       }
     );
