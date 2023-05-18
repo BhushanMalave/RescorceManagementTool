@@ -96,7 +96,7 @@ export class EmployeesComponent implements OnInit {
     this.employeeProjectList = [];
     this.projectlist.map((item) => {
       item.employees.map((data) => {
-        if (data.id === emp.id) {
+        if (data?.id === emp?.id) {
           this.employeeProjectList.push(item.name);
         }
       });
