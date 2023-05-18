@@ -12,7 +12,7 @@
 }
 
 .textallprj {
-  /* font-family: "Inter"; */
+  font-family: "Inter";
   font-style: normal;
   font-weight: 700;
   font-size: 32px;
@@ -33,7 +33,7 @@
   justify-content: center;
 }
 .textadd {
-  /* font-family: 'Inter'; */
+  font-family: "Inter";
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
@@ -46,7 +46,7 @@
   height: 45px;
   background: #ffffff;
   border: 2px solid #474242;
-  /* font-family: "Inter"; */
+  font-family: "Inter";
   font-style: normal;
   font-weight: 700;
   font-size: 26px;
@@ -83,7 +83,7 @@
 }
 
 .textprj {
-  /* font-family: "Inter"; */
+  font-family: "Inter";
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
@@ -92,7 +92,7 @@
   width: 200px;
 }
 .textstatus {
-  /* font-family: "Inter"; */
+  font-family: "Inter";
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
@@ -115,7 +115,7 @@
   margin-top: 50px;
 }
 .label {
-  /* font-family: "Inter"; */
+  font-family: "Inter";
   font-style: normal;
   font-weight: 700;
   font-size: 28px;
@@ -128,9 +128,9 @@
   align-items: center;
 }
 .value {
-  /* font-family: 'Inter'; */
+  font-family: "Inter";
   font-style: normal;
-  font-weight: 200;
+  font-weight: 300;
   font-size: 28px;
   line-height: 15px;
   color: #000000;
@@ -138,9 +138,9 @@
 }
 
 .valueemp {
-  /* font-family: 'Inter'; */
+  font-family: "Inter";
   font-style: normal;
-  font-weight: 200;
+  font-weight: 300;
   font-size: 28px;
   line-height: 15px;
   color: #000000;
@@ -207,7 +207,7 @@
   padding: 40px 80px;
 }
 .textlabel {
-  /* font-family: "Inter"; */
+  font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
@@ -220,7 +220,7 @@
   width: 350px;
   height: 40px;
   border: 2px solid #000000;
-  /* font-family: 'Inter'; */
+  font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -236,7 +236,7 @@
   width: 350px;
   height: 50px;
   border: 2px solid #000000;
-  /* font-family: 'Inter'; */
+  font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -253,7 +253,7 @@
   height: 42px;
   border: 2px solid #000000;
   padding-right: 23px;
-  /* font-family: 'Inter'; */
+  font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -295,7 +295,7 @@
   border-width: 0px;
 }
 .textbtn {
-  /* font-family: 'Inter'; */
+  font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -305,4 +305,9 @@
 .error-text {
   font-size: 14px;
   color: red;
+}
+
+.error {
+  height: 20px;
+  margin-top: 5px;
 }

@@ -55,7 +55,18 @@
         </div>
       </div>
     </div>
-    <button class="btn-primary" type="submit" [disabled]="!signinForm.valid">
+    <div class="error">
+      <span *ngIf="!signinForm.valid && errorStatus === true" class="errortext"
+        >Please enter email and password</span
+      >
+    </div>
+    <button
+      class="btn-primary"
+      type="submit"
+      [ngStyle]="{
+        'background-color': !signinForm.valid ? '#dbdef7' : '#9ba3ed'
+      }"
+    >
       <span class="btntext">Sign In and Register </span>
     </button>
   </form>

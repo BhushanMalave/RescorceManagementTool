@@ -11,6 +11,7 @@ import { LoginService } from 'src/app/services/login.service';
 export class LoginComponent implements OnInit {
   toggle: boolean = false;
   signinForm!: FormGroup;
+  errorStatus: boolean = false;
   constructor(public loginServices: LoginService) {}
 
   ngOnInit() {
@@ -29,7 +30,12 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    this.loginServices.userValidation(this.signinForm.value.userData);
-    this.signinForm.reset();
+    if (this.signinForm.valid) {
+      this.loginServices.userValidation(this.signinForm.value.userData);
+      this.signinForm.reset();
+      this.errorStatus = false;
+    } else {
+      this.errorStatus = true;
+    }
   }
 }

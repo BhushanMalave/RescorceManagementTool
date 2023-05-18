@@ -90,7 +90,7 @@
     <div class="header">
       <div class="txtnewemp">New Project</div>
       <img
-        src="../../../assets/images/close_icon_grey_mdpi.png"
+        src="../../../assets/images/cancle.png"
         alt="icon_close"
         class="icon_close"
         (click)="onCancle()"
@@ -135,11 +135,14 @@
           >
           </ng-multiselect-dropdown>
         </div>
-        <span
-          *ngIf="!addNewProject.valid && addNewProject.touched"
-          class="error-text"
-          >Please enter valid data!</span
-        >
+        <div class="error">
+          <span
+            *ngIf="!addNewProject.valid && addNewProject.touched"
+            class="error-text"
+            >Please enter valid data!</span
+          >
+        </div>
+
         <div class="buttons">
           <div class="btn-cancle" (click)="onCancle()">
             <span class="textbtn">Cancle</span>
@@ -148,6 +151,9 @@
             class="btn-save"
             type="submit"
             [disabled]="!addNewProject.valid"
+            [ngStyle]="{
+              'background-color': !addNewProject.valid ? '#dbdef7' : '#9ba3ed'
+            }"
           >
             <span class="textbtn">Save</span>
           </button>

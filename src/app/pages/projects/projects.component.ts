@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ApiService } from 'src/app/services/api.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { Subject, throwError } from 'rxjs';
 import { Router } from '@angular/router';
-import { employee, project } from 'src/app/type.model';
+import { employee, project, status } from 'src/app/type.model';
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
@@ -23,7 +23,7 @@ export class ProjectsComponent {
   showModel: boolean = false;
   error = new Subject<string>();
 
-  constructor(public apiServices: ApiService, public router: Router) {}
+  constructor(public apiServices: AuthService, public router: Router) {}
 
   ngOnInit() {
     localStorage.removeItem('Employee');
@@ -39,7 +39,6 @@ export class ProjectsComponent {
   getData() {
     this.apiServices.getProjectsData().subscribe(
       (responseData: project[]) => {
-        // console.log(responseData);
         this.projectlist = responseData;
         this.filterlist = this.projectlist;
         this.projectData = this.filterlist[0];
@@ -50,7 +49,6 @@ export class ProjectsComponent {
     );
     this.apiServices.getEmployeesData().subscribe(
       (responseData: employee[]) => {
-        // console.log(responseData);
         this.dropdownList = responseData;
         this.dropdownSettings = {
           idField: 'id',
@@ -72,7 +70,7 @@ export class ProjectsComponent {
       ...this.addNewProject.value,
       employees: this.employeeSelectedList,
     };
-    // console.log('/////', object);
+
     this.apiServices.postProjectsData(object).subscribe(
       (response) => {
         console.log(response);
@@ -86,7 +84,6 @@ export class ProjectsComponent {
     );
   }
   handleChange(event: string): void {
-    // console.log(event);
     this.filterlist = this.projectlist.filter((item) =>
       item.name.toLowerCase().includes(event.toLocaleLowerCase())
     );
@@ -99,13 +96,12 @@ export class ProjectsComponent {
     this.employeeSelectedList.splice(index, 1);
   }
   navigateToEmployee(emp: employee) {
-    // console.log(emp);
     this.router.navigate(['/employees']);
     localStorage.setItem('Employee', JSON.stringify(emp));
   }
 
   updateStatus(data: project) {
-    let body: { status: string };
+    let body: status;
     if (data.status == 'New') {
       body = {
         status: 'In Progress',
@@ -118,10 +114,8 @@ export class ProjectsComponent {
     this.apiServices
       .updateProjectStatus(body, data.id)
       .subscribe((response) => {
-        console.log(response);
         this.apiServices.getProjectsData().subscribe(
           (responseData: project[]) => {
-            // console.log(responseData);
             this.projectlist = responseData;
             this.filterlist = this.projectlist;
             this.filterlist.map((item) => {

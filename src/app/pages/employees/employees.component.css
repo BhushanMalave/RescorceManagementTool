@@ -12,7 +12,7 @@
 }
 
 .textallemp {
-  /* font-family: "Inter"; */
+  font-family: "Inter";
   font-style: normal;
   font-weight: 700;
   font-size: 32px;
@@ -33,7 +33,7 @@
   justify-content: center;
 }
 .textadd {
-  /* font-family: 'Inter'; */
+  font-family: "Inter";
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
@@ -46,7 +46,7 @@
   height: 45px;
   background: #ffffff;
   border: 2px solid #474242;
-  /* font-family: "Inter"; */
+  font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 26px;
@@ -84,7 +84,7 @@
 }
 
 .textemp {
-  /* font-family: "Inter"; */
+  font-family: "Inter";
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
@@ -106,7 +106,7 @@
   margin-top: 50px;
 }
 .labelname {
-  /* font-family: "Inter"; */
+  font-family: "Inter";
   font-style: normal;
   font-weight: 700;
   font-size: 28px;
@@ -115,7 +115,7 @@
   color: #000000;
 }
 .labeldesignation {
-  /* font-family: "Inter"; */
+  font-family: "Inter";
   font-style: normal;
   font-weight: 700;
   font-size: 28px;
@@ -124,7 +124,7 @@
   color: #000000;
 }
 .labeldate {
-  /* font-family: "Inter"; */
+  font-family: "Inter";
   font-style: normal;
   font-weight: 700;
   font-size: 28px;
@@ -133,7 +133,7 @@
   min-width: 165px;
 }
 .labeltech {
-  /* font-family: "Inter"; */
+  font-family: "Inter";
   font-style: normal;
   font-weight: 700;
   font-size: 28px;
@@ -142,7 +142,7 @@
   width: 165px;
 }
 .labelproj {
-  /* font-family: "Inter"; */
+  font-family: "Inter";
   font-style: normal;
   font-weight: 700;
   font-size: 28px;
@@ -151,9 +151,9 @@
   min-width: 220px;
 }
 .value {
-  /* font-family: 'Inter'; */
+  font-family: "Inter";
   font-style: normal;
-  font-weight: 200;
+  font-weight: 300;
   font-size: 28px;
   line-height: 15px;
   color: #000000;
@@ -170,9 +170,9 @@
   /* border: 1px red solid; */
 }
 .valueprojin {
-  /* font-family: 'Inter'; */
+  font-family: "Inter";
   font-style: normal;
-  font-weight: 200;
+  font-weight: 300;
   font-size: 28px;
   color: #000000;
   margin-left: 10px;
@@ -223,7 +223,7 @@
   padding: 40px 80px;
 }
 .textlabel {
-  /* font-family: "Inter"; */
+  font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
@@ -231,12 +231,21 @@
   margin-top: 30px;
   color: #000000;
 }
+.textlabelname {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 15px;
+
+  color: #000000;
+}
 .inputfield {
   margin-top: 20px;
   width: 350px;
   height: 40px;
   border: 2px solid #000000;
-  /* font-family: 'Inter'; */
+  font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -252,7 +261,7 @@
   width: 350px;
   height: 50px;
   border: 2px solid #000000;
-  /* font-family: 'Inter'; */
+  font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -268,7 +277,7 @@
   width: 350px;
   height: 80px;
   border: 2px solid #000000;
-  /* font-family: 'Inter'; */
+  font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -310,7 +319,7 @@
   border-width: 0px;
 }
 .textbtn {
-  /* font-family: 'Inter'; */
+  font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -320,4 +329,8 @@
 .error-text {
   font-size: 14px;
   color: red;
+}
+.error {
+  height: 20px;
+  margin-top: 5px;
 }

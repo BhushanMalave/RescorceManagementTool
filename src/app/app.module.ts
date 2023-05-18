@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -10,6 +10,9 @@ import { LoginComponent } from './pages/login/login.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { PagenotfoundComponent } from './pages/pagenotfound/pagenotfound.component';
+import { InterceptorsService } from './services/interceptors.service';
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
   declarations: [
@@ -18,6 +21,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     ProjectsComponent,
     EmployeesComponent,
     LoginComponent,
+    PagenotfoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,7 +32,10 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     HttpClientModule,
     NgMultiSelectDropDownModule.forRoot(),
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: InterceptorsService, multi: true },
+    AuthGuard,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

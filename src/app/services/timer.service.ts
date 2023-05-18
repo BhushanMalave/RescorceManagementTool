@@ -32,7 +32,6 @@ export class TimerService {
     const now = Date.now();
     const timeLeft = parseInt(this.getLastAction()) + 10 * 60 * 1000;
     const diff = timeLeft - now;
-    // console.log(diff);
     const isTimeout = diff < 0;
     this.ngZone.run(() => {
       if (isTimeout && localStorage.getItem('Authorization') === 'true') {

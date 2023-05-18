@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ApiService } from 'src/app/services/api.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { Subject } from 'rxjs';
 import { designation, employee, project } from 'src/app/type.model';
 @Component({
@@ -19,7 +19,7 @@ export class EmployeesComponent implements OnInit {
   projectlist: project[] = [];
   showModel: boolean = false;
   error = new Subject<string>();
-  constructor(public apiServices: ApiService) {}
+  constructor(public apiServices: AuthService) {}
   ngOnInit() {
     this.getData();
     this.addNewEmployee = new FormGroup({
@@ -48,7 +48,6 @@ export class EmployeesComponent implements OnInit {
     );
     this.apiServices.getProjectsData().subscribe(
       (responseData: project[]) => {
-        // console.log(responseData);
         this.projectlist = responseData;
         this.getemployeeProject(this.employeeData);
       },
@@ -79,7 +78,6 @@ export class EmployeesComponent implements OnInit {
     console.log(this.addNewEmployee.value);
     this.apiServices.postEmployeesData(this.addNewEmployee.value).subscribe(
       (response) => {
-        console.log(response);
         this.addNewEmployee.reset();
         this.showModel = false;
         this.getData();
@@ -90,7 +88,6 @@ export class EmployeesComponent implements OnInit {
     );
   }
   handleChange(event: string): void {
-    // console.log(event);
     this.filterlist = this.employeeList.filter((item) =>
       item.name.toLowerCase().includes(event.toLocaleLowerCase())
     );
@@ -104,6 +101,5 @@ export class EmployeesComponent implements OnInit {
         }
       });
     });
-    // console.log(this.employeeProjectList);
   }
 }

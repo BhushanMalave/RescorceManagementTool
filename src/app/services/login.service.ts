@@ -9,12 +9,13 @@ export class LoginService {
   userData: userdetails[] = [];
   status: boolean = false;
 
-  constructor(public router: Router, public timer: TimerService) {}
+  constructor(public router: Router, public timer: TimerService) {
+    localStorage.setItem('Authorization', JSON.stringify(false));
+  }
 
   userValidation(data: userdetails) {
-    // console.log(data);
     this.userData = JSON.parse(localStorage.getItem('usersDetails'));
-    // console.log(this.userData);
+
     if (this.userData) {
       this.userData.map((value) => {
         if (value.email == data.email) {

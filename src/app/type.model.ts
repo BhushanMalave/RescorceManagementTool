@@ -30,3 +30,6 @@ export interface project {
     technologies: string;
   }[];
 }
+export interface status {
+  status: string;
+}

@@ -16,7 +16,7 @@
 .texrmt {
   width: 101px;
   height: 16px;
-  /* font-family: 'Inter'; */
+  font-family: "Inter";
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
@@ -36,7 +36,7 @@
 }
 
 .textlogout {
-  /* font-family: "Inter"; */
+  font-family: "Inter";
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
@@ -62,7 +62,7 @@
   justify-content: center;
   align-items: center;
   background: #9ba3ed;
-  /* font-family: "Inter"; */
+  font-family: "Inter";
   font-style: normal;
   font-weight: 700;
   font-size: 18px;
