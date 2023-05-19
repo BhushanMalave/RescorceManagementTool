@@ -73,7 +73,7 @@ export class EmployeesComponent implements OnInit {
   closeDialog(event: any) {
     this.showModel = event.value;
   }
-  updateemployeeData(event: any) {
+  updateEmployeeData(event: any) {
     this.showModel = event.value;
     this.getEmployeeList();
   }

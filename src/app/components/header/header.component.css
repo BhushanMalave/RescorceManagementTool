@@ -33,6 +33,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .textlogout {
@@ -54,6 +55,7 @@
   height: 50px;
   display: flex;
   flex-direction: row;
+  cursor: pointer;
 }
 .navbarin {
   width: 50%;

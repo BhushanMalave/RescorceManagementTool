@@ -45,6 +45,7 @@
 
 .valueempin {
   margin-left: 10px;
+  cursor: pointer;
 }
 .btnclose {
   width: 100px;
@@ -55,4 +56,5 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }

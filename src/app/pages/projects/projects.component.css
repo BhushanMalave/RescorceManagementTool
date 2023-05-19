@@ -33,6 +33,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 .textadd {
   font-family: "Inter";
@@ -85,6 +86,7 @@
   align-items: center;
   gap: 10px;
   width: 100%;
+  cursor: pointer;
 }
 
 .textprj {

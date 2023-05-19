@@ -45,6 +45,7 @@ export class ProjectsComponent {
   updateProjectData(event: any) {
     this.showModel = event.value;
     this.getProjectList();
+    console.log('=-=-=-');
   }
   handleChange(event: string): void {
     this.filterlist = this.projectlist.filter((item) =>
