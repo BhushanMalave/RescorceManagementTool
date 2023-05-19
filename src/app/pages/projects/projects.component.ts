@@ -57,7 +57,7 @@ export class ProjectsComponent {
     localStorage.setItem('Employee', JSON.stringify(emp));
   }
 
-  updateStatus() {
+  updateStatusProjectList() {
     this.projectService.getProjectList();
     this.projectListSubject = this.projectService.projectsList$.subscribe(
       (response) => {
