@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AuthService } from './auth.service';
-import { project, status } from '../type.model';
+import { project } from '../type.model';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({

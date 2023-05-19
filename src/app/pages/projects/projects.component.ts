@@ -70,12 +70,10 @@ export class ProjectsComponent {
         this.filterlist = this.projectlist;
         this.filterlist.map((item) => {
           if (item.id === this.projectData.id) {
-            // localStorage.setItem('ProjectData', JSON.stringify(item));
             this.projectData = item;
           }
         });
       }
     );
-    // this.projectData = JSON.parse(localStorage.getItem('ProjectData'));
   }
 }
