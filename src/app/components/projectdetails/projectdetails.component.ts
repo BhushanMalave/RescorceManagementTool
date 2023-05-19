@@ -33,7 +33,14 @@ export class ProjectdetailsComponent {
         status: 'Closed',
       };
     }
-    this.projectService.updateProjectStatus(body, data.id);
-    this.update.emit();
+    this.apiServices.updateProjectStatus(body, data.id).subscribe({
+      next: (response) => {
+        console.log(response);
+        this.update.emit();
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
   }
 }

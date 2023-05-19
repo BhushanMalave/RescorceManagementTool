@@ -46,8 +46,16 @@ export class AddemployeemodelComponent implements OnInit {
   }
 
   onSubmit() {
-    this.employeeService.UpdateEmployeeList(this.addNewEmployeeForm.value);
-    this.addNewEmployeeForm.reset();
-    this.save.emit(false);
+    this.apiServices
+      .updateEmployeesData(this.addNewEmployeeForm.value)
+      .subscribe({
+        next: (responseData) => {
+          this.addNewEmployeeForm.reset();
+          this.save.emit(false);
+        },
+        error: (error) => {
+          console.log(error);
+        },
+      });
   }
 }

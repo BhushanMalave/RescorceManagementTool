@@ -18,7 +18,7 @@
       <div
         class="projectdiv"
         *ngFor="let proj of filterlist"
-        (click)="projectData = proj"
+        (click)="showProjectDetails(proj)"
         [ngStyle]="{
           'background-color':
             proj?.name === projectData?.name ? '#dbdef7' : 'transparent'

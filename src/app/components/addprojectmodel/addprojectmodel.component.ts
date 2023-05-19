@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { Subscription } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
 import { EmployeesService } from 'src/app/services/employees.service';
 import { ProjectsService } from 'src/app/services/projects.service';
 import { employee } from 'src/app/type.model';
@@ -24,6 +25,7 @@ export class AddprojectmodelComponent {
   @Output() save = new EventEmitter<boolean>();
 
   constructor(
+    public apiServices: AuthService,
     public employeeService: EmployeesService,
     public projectService: ProjectsService,
     public router: Router
@@ -66,8 +68,15 @@ export class AddprojectmodelComponent {
       ...this.addNewProjectForm.value,
       employees: this.employeeSelectedList,
     };
-    this.projectService.updateProjectList(object);
-    this.addNewProjectForm.reset();
-    this.save.emit(false);
+    this.apiServices.updateProjectsData(object).subscribe({
+      next: (responseData) => {
+        console.log(responseData);
+        this.addNewProjectForm.reset();
+        this.save.emit(false);
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
   }
 }

@@ -45,13 +45,16 @@ export class ProjectsComponent {
   updateProjectData(event: any) {
     this.showModel = event.value;
     this.getProjectList();
-    console.log('=-=-=-');
   }
   handleChange(event: string): void {
     this.filterlist = this.projectlist.filter((item) =>
       item.name.toLowerCase().includes(event.toLocaleLowerCase())
     );
   }
+  showProjectDetails(data: project) {
+    this.projectData = data;
+  }
+
   navigateToEmployee(emp: employee) {
     this.router.navigate(['/employees']);
     localStorage.setItem('Employee', JSON.stringify(emp));

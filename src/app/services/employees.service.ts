@@ -42,15 +42,4 @@ export class EmployeesService {
       },
     });
   }
-
-  UpdateEmployeeList(body: employee): void {
-    this.apiServices.updateEmployeesData(body).subscribe({
-      next: (responseData) => {
-        console.log(responseData);
-      },
-      error: (error) => {
-        console.log(error);
-      },
-    });
-  }
 }

@@ -25,26 +25,4 @@ export class ProjectsService {
       },
     });
   }
-
-  updateProjectStatus(body: status, id: string) {
-    this.apiServices.updateProjectStatus(body, id).subscribe({
-      next: (response) => {
-        console.log(response);
-      },
-      error: (error) => {
-        console.log(error);
-      },
-    });
-  }
-
-  updateProjectList(body: project): void {
-    this.apiServices.updateProjectsData(body).subscribe({
-      next: (responseData) => {
-        console.log(responseData);
-      },
-      error: (error) => {
-        console.log(error);
-      },
-    });
-  }
 }
