@@ -18,6 +18,7 @@ export class ProjectsComponent {
   filterlist: project[] = [];
   employeeSelectedList: any = [];
   showModel: boolean = false;
+  id: number = 0;
 
   constructor(public router: Router, public projectService: ProjectsService) {}
 
@@ -33,6 +34,7 @@ export class ProjectsComponent {
         this.projectlist = response;
         this.filterlist = this.projectlist;
         this.projectData = this.filterlist[0];
+        this.projectListSubject.unsubscribe();
       }
     );
   }
@@ -68,10 +70,12 @@ export class ProjectsComponent {
         this.filterlist = this.projectlist;
         this.filterlist.map((item) => {
           if (item.id === this.projectData.id) {
+            // localStorage.setItem('ProjectData', JSON.stringify(item));
             this.projectData = item;
           }
         });
       }
     );
+    // this.projectData = JSON.parse(localStorage.getItem('ProjectData'));
   }
 }
