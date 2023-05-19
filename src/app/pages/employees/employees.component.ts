@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
-import { Subject } from 'rxjs';
-import { designation, employee, project } from 'src/app/type.model';
+import { EmployeesService } from 'src/app/services/employees.service';
+import { ProjectsService } from 'src/app/services/projects.service';
+import { Subscription } from 'rxjs';
+import { employee, project } from 'src/app/type.model';
+
 @Component({
   selector: 'app-employees',
   templateUrl: './employees.component.html',
@@ -10,89 +12,72 @@ import { designation, employee, project } from 'src/app/type.model';
 })
 export class EmployeesComponent implements OnInit {
   employeeName: string;
-  addNewEmployee!: FormGroup;
   employeeList: employee[] = [];
+  employeeListSubject = new Subscription();
   filterlist: employee[] = [];
   employeeData: employee;
-  designations: designation[] = [];
-  employeeProjectList: any = [];
+  employeeProjectList: string[] = [];
   projectlist: project[] = [];
+  projectListSubject = new Subscription();
   showModel: boolean = false;
-  error = new Subject<string>();
-  constructor(public apiServices: AuthService) {}
+
+  constructor(
+    public apiServices: AuthService,
+    public employeeService: EmployeesService,
+    public projectService: ProjectsService
+  ) {}
+
   ngOnInit() {
-    this.getData();
-    this.addNewEmployee = new FormGroup({
-      name: new FormControl('', Validators.required),
-      designationId: new FormControl('', Validators.required),
-      joiningDate: new FormControl('', Validators.required),
-      technologies: new FormControl('', Validators.required),
-    });
+    this.getProjectList();
+    this.getEmployeeList();
   }
 
-  getData() {
-    this.apiServices.getEmployeesData().subscribe(
-      (responseData: employee[]) => {
-        this.employeeList = responseData;
-        this.filterlist = this.employeeList;
+  getProjectList() {
+    this.projectService.getProjectList();
+    this.projectListSubject = this.projectService.projectsList$.subscribe(
+      (response) => {
+        this.projectlist = response;
+        this.getemployeeProjectList(this.employeeData);
+      }
+    );
+  }
 
+  getEmployeeList() {
+    this.employeeService.getEmployeeList();
+    this.employeeListSubject = this.employeeService.employeesList$.subscribe(
+      (response) => {
+        this.employeeList = response;
+        this.filterlist = this.employeeList;
         if (localStorage.getItem('Employee')) {
           this.employeeData = JSON.parse(localStorage.getItem('Employee'));
         } else {
           this.employeeData = this.filterlist[0];
         }
-      },
-      (error) => {
-        this.error.next(error.message);
-      }
-    );
-    this.apiServices.getProjectsData().subscribe(
-      (responseData: project[]) => {
-        this.projectlist = responseData;
-        this.getemployeeProject(this.employeeData);
-      },
-      (error) => {
-        this.error.next(error.message);
-      }
-    );
-    this.apiServices.getDesignationData().subscribe(
-      (responseData: designation[]) => {
-        this.designations = responseData;
-      },
-      (error) => {
-        this.error.next(error.message);
       }
     );
   }
   onClickEmployee(data: any) {
     localStorage.removeItem('Employee');
     this.employeeData = data;
-    this.getemployeeProject(data);
+    this.getemployeeProjectList(data);
   }
-  onCancle() {
-    this.addNewEmployee.reset();
-    this.showModel = false;
-    this.getData();
-  }
-  onSubmit() {
-    console.log(this.addNewEmployee.value);
-    this.apiServices.postEmployeesData(this.addNewEmployee.value).subscribe(
-      (response) => {
-        this.addNewEmployee.reset();
-        this.showModel = false;
-        this.getData();
-      },
-      (error) => {
-        this.error.next(error.message);
-      }
-    );
-  }
+
   handleChange(event: string): void {
     this.filterlist = this.employeeList.filter((item) =>
       item.name.toLowerCase().includes(event.toLocaleLowerCase())
     );
   }
-  getemployeeProject(emp: employee) {
+  openDialog() {
+    this.showModel = true;
+  }
+  closeDialog(event: any) {
+    this.showModel = event.value;
+  }
+  updateemployeeData(event: any) {
+    this.showModel = event.value;
+    this.getEmployeeList();
+  }
+  getemployeeProjectList(emp: employee) {
     this.employeeProjectList = [];
     this.projectlist.map((item) => {
       item.employees.map((data) => {

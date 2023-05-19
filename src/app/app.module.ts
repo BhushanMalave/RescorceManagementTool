@@ -13,6 +13,12 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { PagenotfoundComponent } from './pages/pagenotfound/pagenotfound.component';
 import { InterceptorsService } from './services/interceptors.service';
 import { AuthGuard } from './auth.guard';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AddemployeemodelComponent } from './components/addemployeemodel/addemployeemodel.component';
+import { MatIconModule } from '@angular/material/icon';
+import { EmployeedetailsComponent } from './components/employeedetails/employeedetails.component';
+import { AddprojectmodelComponent } from './components/addprojectmodel/addprojectmodel.component';
+import { ProjectdetailsComponent } from './components/projectdetails/projectdetails.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +28,11 @@ import { AuthGuard } from './auth.guard';
     EmployeesComponent,
     LoginComponent,
     PagenotfoundComponent,
+    EmployeedetailsComponent,
+    AddemployeemodelComponent,
+    AddprojectmodelComponent,
+    ProjectdetailsComponent,
+    EmployeedetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +42,8 @@ import { AuthGuard } from './auth.guard';
     ReactiveFormsModule,
     HttpClientModule,
     NgMultiSelectDropDownModule.forRoot(),
+    BrowserAnimationsModule,
+    MatIconModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: InterceptorsService, multi: true },

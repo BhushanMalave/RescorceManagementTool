@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { employee, project, status } from '../type.model';
+import { designation, employee, project, status } from '../type.model';
 import { URL } from '../urls.model';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
@@ -12,11 +13,11 @@ export class AuthService {
     return this.http.get(`${URL.employee}`);
   }
 
-  postEmployeesData(body: employee) {
+  updateEmployeesData(body: employee) {
     return this.http.post(`${URL.employee}`, body);
   }
 
-  postProjectsData(body: project) {
+  updateProjectsData(body: project) {
     return this.http.post(`${URL.project}`, body);
   }
 

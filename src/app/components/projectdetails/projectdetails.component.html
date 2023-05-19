@@ -1,0 +1,45 @@
+<div class="empinfo">
+  <div class="singledetail">
+    <div class="label">Name:</div>
+    <div class="value">{{ projectData?.name }}</div>
+  </div>
+  <div class="singledetail">
+    <div class="label">Status:</div>
+    <div class="statusdiv" *ngIf="projectData?.status === 'New'">
+      <div class="value">Yet to start</div>
+      <div class="btnclose" (click)="updateStatus(projectData)">
+        <span class="textadd">Start</span>
+      </div>
+    </div>
+    <div class="statusdiv" *ngIf="projectData?.status === 'In Progress'">
+      <div class="value">In Progress</div>
+      <div class="btnclose">
+        <span class="textadd" (click)="updateStatus(projectData)">Close</span>
+      </div>
+    </div>
+    <div class="statusdiv" *ngIf="projectData?.status === 'Closed'">
+      <div class="value">Closed</div>
+      <div class="btnclose"><span class="textadd">Delete</span></div>
+    </div>
+  </div>
+  <div class="singledetail">
+    <div class="label">Joining date:</div>
+    <div class="value">{{ projectData?.startDate }}</div>
+  </div>
+  <div class="singledetail">
+    <div class="label">Tecnologies:</div>
+    <div class="value">{{ projectData?.technologies }}</div>
+  </div>
+  <div class="singledetail">
+    <div class="label">Developers:</div>
+    <div class="valueemp">
+      <div
+        class="valueempin"
+        *ngFor="let emp of projectData?.employees"
+        (click)="navigateToEmployee(emp)"
+      >
+        {{ emp.name }},
+      </div>
+    </div>
+  </div>
+</div>

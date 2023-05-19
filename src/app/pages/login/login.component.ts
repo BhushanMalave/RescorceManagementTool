@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
@@ -12,6 +11,7 @@ export class LoginComponent implements OnInit {
   toggle: boolean = false;
   signinForm!: FormGroup;
   errorStatus: boolean = false;
+
   constructor(public loginServices: LoginService) {}
 
   ngOnInit() {

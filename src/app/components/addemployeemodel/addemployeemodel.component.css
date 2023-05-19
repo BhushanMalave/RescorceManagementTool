@@ -1,0 +1,156 @@
+.model {
+  position: absolute;
+  height: 101vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0px;
+  right: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.addcomponent {
+  width: 550px;
+  height: 650px;
+  background: #ffffff;
+}
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.txtnewemp {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 19px;
+  color: #000000;
+  margin-top: 30px;
+  margin-left: 40px;
+}
+.icon_close {
+  width: 14px;
+  height: 19px;
+  margin-top: 30px;
+  margin-right: 40px;
+}
+
+.addempfrom {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 80px;
+}
+.textlabel {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 15px;
+  margin-top: 30px;
+  color: #000000;
+}
+.textlabelname {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 15px;
+
+  color: #000000;
+}
+.inputfield {
+  margin-top: 20px;
+  width: 350px;
+  height: 40px;
+  border: 2px solid #000000;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 15px;
+  color: #000000;
+}
+.inputfield:focus {
+  outline: none;
+  background: #dbdef6;
+}
+.selectfield {
+  margin-top: 20px;
+  width: 350px;
+  height: 50px;
+  border: 2px solid #000000;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 15px;
+  color: #000000;
+}
+.selectfield:focus {
+  outline: none;
+  background: #dbdef6;
+}
+.inputfieldarea {
+  margin-top: 20px;
+  width: 350px;
+  height: 80px;
+  border: 2px solid #000000;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 15px;
+  color: #000000;
+}
+.inputfieldarea:focus {
+  outline: none;
+  background: #dbdef6;
+}
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.btn-cancle {
+  width: 120px;
+  height: 40px;
+  margin-top: 10px;
+  margin-left: 0px;
+  background: #d2d3dd;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-save {
+  width: 120px;
+  height: 40px;
+  margin-top: 10px;
+  margin-right: 33px;
+  background: #9ba3ed;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-width: 0px;
+}
+.textbtn {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 15px;
+  color: #000000;
+}
+.error-text {
+  font-size: 14px;
+  color: red;
+}
+.error {
+  height: 20px;
+  margin-top: 5px;
+}

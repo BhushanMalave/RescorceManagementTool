@@ -3,7 +3,7 @@
 <div class="maindiv">
   <div class="projlist">
     <div class="textallprj">All Projects</div>
-    <div class="btn-add" (click)="showModel = true">
+    <div class="btn-add" (click)="openDialog()">
       <span class="textadd">Add</span>
     </div>
     <input
@@ -36,129 +36,16 @@
     </div>
   </div>
   <div class="empdetails">
-    <div class="empinfo">
-      <div class="singledetail">
-        <div class="label">Name:</div>
-        <div class="value">{{ projectData?.name }}</div>
-      </div>
-      <div class="singledetail">
-        <div class="label">Status:</div>
-        <div class="statusdiv" *ngIf="projectData?.status === 'New'">
-          <div class="value">Yet to start</div>
-          <div class="btnclose" (click)="updateStatus(projectData)">
-            <span class="textadd">Start</span>
-          </div>
-        </div>
-        <div class="statusdiv" *ngIf="projectData?.status === 'In Progress'">
-          <div class="value">In Progress</div>
-          <div class="btnclose">
-            <span class="textadd" (click)="updateStatus(projectData)"
-              >Close</span
-            >
-          </div>
-        </div>
-        <div class="statusdiv" *ngIf="projectData?.status === 'Closed'">
-          <div class="value">Closed</div>
-          <div class="btnclose"><span class="textadd">Delete</span></div>
-        </div>
-      </div>
-      <div class="singledetail">
-        <div class="label">Joining date:</div>
-        <div class="value">{{ projectData?.startDate }}</div>
-      </div>
-      <div class="singledetail">
-        <div class="label">Tecnologies:</div>
-        <div class="value">{{ projectData?.technologies }}</div>
-      </div>
-      <div class="singledetail">
-        <div class="label">Developers:</div>
-        <div class="valueemp">
-          <div
-            class="valueempin"
-            *ngFor="let emp of projectData?.employees"
-            (click)="navigateToEmployee(emp)"
-          >
-            {{ emp.name }},
-          </div>
-        </div>
-      </div>
-    </div>
+    <app-projectdetails
+      [projectData]="projectData"
+      (update)="updateStatus()"
+    ></app-projectdetails>
   </div>
 </div>
-<div *ngIf="showModel" class="model">
-  <div class="addcomponent">
-    <div class="header">
-      <div class="txtnewemp">New Project</div>
-      <img
-        src="../../../assets/images/cancle.png"
-        alt="icon_close"
-        class="icon_close"
-        (click)="onCancle()"
-      />
-    </div>
-    <div>
-      <form
-        [formGroup]="addNewProject"
-        (ngSubmit)="onSubmit()"
-        class="addempfrom"
-      >
-        <label for="name" class="textlabel">Name</label>
-        <input
-          type="text"
-          id="name"
-          formControlName="name"
-          class="inputfield"
-        />
-        <label for="technologies" class="textlabel">Technologies</label>
-        <input
-          type="text"
-          id="technologies"
-          formControlName="technologies"
-          class="inputfield"
-          multiple="true"
-        />
-        <label for="startDate" class="textlabel">Start Date</label>
-        <input
-          type="date"
-          id="startDate"
-          formControlName="startDate"
-          class="inputfield"
-        />
-        <label for="employees" class="textlabel">Employees</label>
-        <div class="inputfieldarea">
-          <ng-multiselect-dropdown
-            formControlName="employees"
-            [settings]="dropdownSettings"
-            [data]="dropdownList"
-            (onSelect)="employeeSelected($event)"
-            (onDeSelect)="employeeUnSelected($event)"
-          >
-          </ng-multiselect-dropdown>
-        </div>
-        <div class="error">
-          <span
-            *ngIf="!addNewProject.valid && addNewProject.touched"
-            class="error-text"
-            >Please enter valid data!</span
-          >
-        </div>
-
-        <div class="buttons">
-          <div class="btn-cancle" (click)="onCancle()">
-            <span class="textbtn">Cancle</span>
-          </div>
-          <button
-            class="btn-save"
-            type="submit"
-            [disabled]="!addNewProject.valid"
-            [ngStyle]="{
-              'background-color': !addNewProject.valid ? '#dbdef7' : '#9ba3ed'
-            }"
-          >
-            <span class="textbtn">Save</span>
-          </button>
-        </div>
-      </form>
-    </div>
-  </div>
+<div *ngIf="showModel">
+  <app-addprojectmodel
+    [showModel]="showModel"
+    (close)="closeDialog($event)"
+    (save)="updateProjectData($event)"
+  ></app-addprojectmodel>
 </div>

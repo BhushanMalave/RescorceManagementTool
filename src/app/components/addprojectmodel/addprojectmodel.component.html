@@ -1,0 +1,81 @@
+<div class="model">
+  <div class="addcomponent">
+    <div class="header">
+      <div class="txtnewemp">New Project</div>
+      <div class="icon_close">
+        <mat-icon
+          aria-hidden="false"
+          aria-label=" home "
+          fontIcon="close"
+          (click)="onCancle()"
+        ></mat-icon>
+      </div>
+    </div>
+    <div>
+      <form
+        [formGroup]="addNewProjectForm"
+        (ngSubmit)="onSubmit()"
+        class="addempfrom"
+      >
+        <label for="name" class="textlabel">Name</label>
+        <input
+          type="text"
+          id="name"
+          formControlName="name"
+          class="inputfield"
+        />
+        <label for="technologies" class="textlabel">Technologies</label>
+        <input
+          type="text"
+          id="technologies"
+          formControlName="technologies"
+          class="inputfield"
+          multiple="true"
+        />
+        <label for="startDate" class="textlabel">Start Date</label>
+        <input
+          type="date"
+          id="startDate"
+          formControlName="startDate"
+          class="inputfield"
+        />
+        <label for="employees" class="textlabel">Employees</label>
+        <div class="inputfieldarea">
+          <ng-multiselect-dropdown
+            formControlName="employees"
+            [settings]="dropdownSettings"
+            [data]="dropdownList"
+            (onSelect)="employeeSelected($event)"
+            (onDeSelect)="employeeUnSelected($event)"
+          >
+          </ng-multiselect-dropdown>
+        </div>
+        <div class="error">
+          <span
+            *ngIf="!addNewProjectForm.valid && addNewProjectForm.touched"
+            class="error-text"
+            >Please enter valid data!</span
+          >
+        </div>
+
+        <div class="buttons">
+          <div class="btn-cancle" (click)="onCancle()">
+            <span class="textbtn">Cancle</span>
+          </div>
+          <button
+            class="btn-save"
+            type="submit"
+            [disabled]="!addNewProjectForm.valid"
+            [ngStyle]="{
+              'background-color': !addNewProjectForm.valid
+                ? '#dbdef7'
+                : '#9ba3ed'
+            }"
+          >
+            <span class="textbtn">Save</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

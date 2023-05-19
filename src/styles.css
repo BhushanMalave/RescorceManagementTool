@@ -8,8 +8,7 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
-
 @font-face {
   font-family: "Inter";
-  src: url("../src/assets/fonts/Inter.ttf");
+  src: url("./assets/fonts/Inter.ttf");
 }

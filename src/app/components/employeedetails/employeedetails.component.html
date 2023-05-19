@@ -1,0 +1,26 @@
+<div class="empinfo">
+  <div class="singledetail">
+    <div class="labelname">Name:</div>
+    <div class="value">{{ employeeData?.name }}</div>
+  </div>
+  <div class="singledetail">
+    <div class="labeldesignation">Designation:</div>
+    <div class="value">{{ employeeData?.designation }}</div>
+  </div>
+  <div class="singledetail">
+    <div class="labeldate">Joining date:</div>
+    <div class="value">{{ employeeData?.joiningDate }}</div>
+  </div>
+  <div class="singledetail">
+    <div class="labeltech">Tecnologies:</div>
+    <div class="value">{{ employeeData?.technologies }}</div>
+  </div>
+  <div class="singledetail">
+    <div class="labelproj">Active projects:</div>
+    <div class="valueproj">
+      <div *ngFor="let proj of employeeProjectList" class="valueprojin">
+        {{ proj }},
+      </div>
+    </div>
+  </div>
+</div>

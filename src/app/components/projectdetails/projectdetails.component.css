@@ -1,0 +1,58 @@
+.empinfo {
+  padding: 80px 40px;
+  height: 60vh;
+}
+.singledetail {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 50px;
+}
+.label {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 15px;
+  color: #000000;
+}
+.statusdiv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.value {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 28px;
+  line-height: 15px;
+  color: #000000;
+  margin-left: 30px;
+}
+
+.valueemp {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 28px;
+  line-height: 15px;
+  color: #000000;
+  margin-left: 30px;
+  display: flex;
+  flex-direction: row;
+}
+
+.valueempin {
+  margin-left: 10px;
+}
+.btnclose {
+  width: 100px;
+  height: 40px;
+  margin-left: 30px;
+  background: #9ba3ed;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
