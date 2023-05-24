@@ -51,6 +51,7 @@ export class AddemployeemodelComponent implements OnInit {
       .subscribe({
         next: (responseData) => {
           this.addNewEmployeeForm.reset();
+          this.employeeService.employeesListSubject.next([]);
           this.save.emit(false);
         },
         error: (error) => {

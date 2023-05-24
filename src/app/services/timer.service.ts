@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 })
 export class TimerService {
   constructor(public router: Router, private ngZone: NgZone) {}
-  time: number = 10;
+  time: number = 5;
   autoLogout() {
     this.lastAction(Date.now());
     this.initInterval();

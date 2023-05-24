@@ -72,6 +72,7 @@ export class AddprojectmodelComponent {
       next: (responseData) => {
         console.log(responseData);
         this.addNewProjectForm.reset();
+        this.projectService.projectsListSubject.next([]);
         this.save.emit(false);
       },
       error: (error) => {

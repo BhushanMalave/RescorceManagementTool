@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { EmployeesService } from 'src/app/services/employees.service';
 import { ProjectsService } from 'src/app/services/projects.service';
@@ -10,7 +10,7 @@ import { employee, project } from 'src/app/type.model';
   templateUrl: './employees.component.html',
   styleUrls: ['./employees.component.css'],
 })
-export class EmployeesComponent implements OnInit {
+export class EmployeesComponent implements OnInit, OnDestroy {
   employeeName: string;
   employeeList: employee[] = [];
   employeeListSubject = new Subscription();
@@ -28,8 +28,8 @@ export class EmployeesComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.getProjectList();
     this.getEmployeeList();
+    this.getProjectList();
   }
 
   getProjectList() {
@@ -86,5 +86,8 @@ export class EmployeesComponent implements OnInit {
         }
       });
     });
+  }
+  ngOnDestroy(): void {
+    // this.projectListSubject.unsubscribe();
   }
 }

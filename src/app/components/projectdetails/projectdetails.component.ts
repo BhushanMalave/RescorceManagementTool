@@ -36,6 +36,7 @@ export class ProjectdetailsComponent {
     this.apiServices.updateProjectStatus(body, data.id).subscribe({
       next: (response) => {
         console.log(response);
+        this.projectService.projectsListSubject.next([]);
         this.update.emit();
       },
       error: (error) => {

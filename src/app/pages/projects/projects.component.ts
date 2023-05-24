@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
@@ -9,7 +9,7 @@ import { ProjectsService } from 'src/app/services/projects.service';
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.css'],
 })
-export class ProjectsComponent {
+export class ProjectsComponent implements OnInit, OnDestroy {
   projectData: project;
   projectName: string = '';
   projectlist: project[] = [];
@@ -75,5 +75,8 @@ export class ProjectsComponent {
         });
       }
     );
+  }
+  ngOnDestroy(): void {
+    // this.projectListSubject.unsubscribe();
   }
 }

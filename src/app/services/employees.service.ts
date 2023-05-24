@@ -22,24 +22,28 @@ export class EmployeesService {
   constructor(public apiServices: AuthService) {}
 
   getDesignationList(): void {
-    this.apiServices.getDesignationData().subscribe({
-      next: (responseData: designation[]) => {
-        this.designationsListSubject.next(responseData);
-      },
-      error: (error) => {
-        console.log(error);
-      },
-    });
+    if (this.designationsListSubject.value.length === 0) {
+      this.apiServices.getDesignationData().subscribe({
+        next: (responseData: designation[]) => {
+          this.designationsListSubject.next(responseData);
+        },
+        error: (error) => {
+          console.log(error);
+        },
+      });
+    }
   }
 
   getEmployeeList(): any {
-    this.apiServices.getEmployeesData().subscribe({
-      next: (responseData: employee[]) => {
-        this.employeesListSubject.next(responseData);
-      },
-      error: (error) => {
-        console.log(error);
-      },
-    });
+    if (this.employeesListSubject.value.length === 0) {
+      this.apiServices.getEmployeesData().subscribe({
+        next: (responseData: employee[]) => {
+          this.employeesListSubject.next(responseData);
+        },
+        error: (error) => {
+          console.log(error);
+        },
+      });
+    }
   }
 }
